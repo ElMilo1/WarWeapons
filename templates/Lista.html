@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+</head>
+<body>
+    <div>Listado de armamento.</div>
+    {% if Weapon %}
+    <table class="table table-striped table-inverse table-responsive">
+        <thead class="thead-inverse">
+            <th>Weapon name</th>
+            <th>Weapon type</th>
+            <th>Weapon slot</th>
+            <th>Critical Utility</th>
+            <th>Critical damage Utility</th>
+            <th>Status Utility</th>
+        </thead>
+        <tbody>
+        {% for i in Weapon %}
+        <tr>
+            <td>{{ i.Weapon_Name }}</td>
+            <td>{{ i.Weapon_Type }}</td>
+            <td>{{ i.Weapon_Slot }}</td>
+            <td>{{ i.Critical_Utility }}</td>
+            <td>{{ i.CriticalDMG_Utility }}</td>
+            <td>{{i.Status_Utility }}</td>
+            <td><a href="../editar/{{i.id}}" class="btn btn-success">Editar</a></td>
+            <td><a href="../borrar/{{i.id}}" class="btn btn-danger">Eliminar</a></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+
+    <div>No hay nada para mostrar</div>
+
+    {% endif %}
+
+    <a href="../"><button type="button" class="btn btn-outline-secondary bi bi-arrow-return-left">Volver.</i></button></i></a>
+</body>
+</html>
